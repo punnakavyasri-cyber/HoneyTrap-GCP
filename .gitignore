@@ -1,0 +1,9 @@
+/honeypot_key
+/honeypot_key.pub
+*.tfstate
+*.tfstate.backup
+*.json
+.terraform/
+.terraform.lock.hcl
+*.log
+id_ed25519
