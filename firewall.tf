@@ -50,7 +50,7 @@ resource "google_compute_firewall" "allow_kibana_admin" {
 
   allow {
     protocol = "tcp"
-    ports    = ["64296"]
+    ports    = ["64297"]
   }
 
   description = "Allow Kibana UI access only from admin CIDR"
