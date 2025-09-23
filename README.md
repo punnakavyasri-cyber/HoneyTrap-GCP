@@ -67,12 +67,12 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 - Automate parts of the deployment with Terraform or GitHub Actions. 
 
 
-## Credits & Acknowledgements
+## 🙏 Credits & Acknowledgements
 This project uses and builds upon the open **T-Pot CE** honeypot framework by Telekom Security:  
 - T-Pot CE: https://github.com/telekom-security/tpotce — many honeypot components and deployment patterns are derived from this project. Please review their project and license for reuse details.
 
 
 
-## Quick security checklist (do this before committing)
+## ✅ Quick security checklist (do this before committing)
 - Remove or replace any real values in `terraform.tfvars` with placeholders (commit `terraform.tfvars.example` instead).  
 - Add the following to `.gitignore`: `.terraform/`, `*.tfstate`, `*.tfstate.backup`, `terraform.tfvars`, `*.json`, `*.pem`
