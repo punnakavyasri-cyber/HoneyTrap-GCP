@@ -1,12 +1,11 @@
 # HoneyTrap-GCP 🐝🔐
 
-## 1. Introduction  
 HoneyTrap-GCP is an Infrastructure-as-Code project that provisions a honeypot lab on **Google Cloud Platform (GCP)** using **Terraform**. The environment aims to capture real-world attacker behaviour in a controlled cloud setting so you can practise SOC analysis, detection engineering, and incident investigation.  
 
 This repository bootstraps networking, compute, and firewall resources, deploys a public-facing honeypot (T-Pot CE) and a restricted admin VM, and hosts a Dockerized **Kibana/Elastic** dashboard for visualizing collected telemetry. The deployment is partially complete: the dashboards are deployed but the Threat Analysis phase (explore Elastic, enumerate attackers, map strategies) is still pending and documented as the next milestone.
 
 
-## 2. Purpose of the project
+## 🎯 Purpose of the project
 - Deploy a repeatable honeypot environment in GCP using Terraform.  
 - Provide an isolated, observable environment to collect attacker telemetry.  
 - Surface attacker activity into Elastic/Kibana for visualization and analysis.  
@@ -15,13 +14,13 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 - Produce actionable findings (IOCs, attacker TTPs, timeline of compromise).
 
 
-## 3. Architecture Diagram
+## 🏗️ Architecture Diagram
 
 
 
 
 
-## 4. Technologies used
+## 📋 Technologies used
 - **Google Cloud Platform (GCP)** — compute & networking  
 - **Terraform** — IaC for VPC, firewall, VM provisioning  
 - **T-Pot CE** (telekom-security) — multi-honeypot framework (credit below)  
@@ -29,13 +28,13 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 - **Kibana / Elastic** — log visualization & analysis 
 
 
-## 5. Pre-requisites
+## 📋 Pre-requisites
 - A free **GCP account** with billing enabled  
 - **Terraform CLI** installed on your machine  
 - **gcloud CLI** installed and configured with GCP account  
 
 
-## 6. Project workflow
+## 🚀 Project workflow
 1. Begin by creating a **Service Account** in GCP with the required IAM roles, and then download the key JSON file for authentication.  
 2. Save the downloaded key JSON file securely on your local machine and either reference it directly in the Terraform provider configuration or authenticate using `gcloud auth application-default login`.  
 3. Prepare the `terraform.tfvars` file by filling in the necessary variables, making use of the provided `terraform.tfvars.example` as a template to ensure consistency.  
@@ -60,7 +59,7 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 - Prepare a short report per attacker group: summary, IOCs, suggested detections, and containment steps.
 
 
-## 7. Future Expansions
+## 🔮 Future Expansions
 - Integrate **Elasticsearch** as a persistent backend (if not already done) and optimize index lifecycle policies.  
 - Add **Suricata / Zeek** to the honeypot pipeline for richer network indicators and PCAP capture.  
 - Enrich logs with **GeoIP, ASN, WHOIS** for faster triage.  
