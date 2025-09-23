@@ -13,6 +13,12 @@ output "vpc_name" {
   description = "VPC name"
 }
 
+output "Kibana_firewall_rule" {
+  value       = google_compute_firewall.allow_kibana_admin.name
+  description = "Firewall rule name for Kibana access"
+  
+}
+
 output "subnet_name" {
   value       = google_compute_subnetwork.subnet.name
   description = "Subnet name"

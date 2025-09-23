@@ -38,3 +38,20 @@ resource "google_compute_firewall" "egress_all" {
   allow { protocol = "all" }
   description = "Allow all egress"
 }
+
+# Kibana UI access only from your admin IP to "<prefix>-admin"
+resource "google_compute_firewall" "allow_kibana_admin" {
+  name          = "${local.prefix}-allow-kibana-admin"
+  network       = google_compute_network.vpc.name
+  target_tags   = ["${local.prefix}-admin"]
+  direction     = "INGRESS"
+  priority      = 1002
+  source_ranges = [var.admin_cidr]   # restrict to your admin/public IP
+
+  allow {
+    protocol = "tcp"
+    ports    = ["64296"]
+  }
+
+  description = "Allow Kibana UI access only from admin CIDR"
+}
