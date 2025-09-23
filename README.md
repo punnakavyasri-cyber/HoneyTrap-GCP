@@ -60,13 +60,11 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 
 
 ## 🔮 Future Expansions
-- Integrate **Elasticsearch** as a persistent backend (if not already done) and optimize index lifecycle policies.  
-- Add **Suricata / Zeek** to the honeypot pipeline for richer network indicators and PCAP capture.  
-- Enrich logs with **GeoIP, ASN, WHOIS** for faster triage.  
-- Create automated **detection rules & alerts** in Kibana/Alerting (email/Slack).  
-- Add **SIEM connectors** (Splunk/Elastic SIEM) and a scheduled IOC extractor.  
-- Implement CI/CD: GitHub Actions for linting Terraform, and Terraform Cloud for remote runs and state.  
-- Develop a reporting notebook (Jupyter) to summarize attacker TTPs and produce artifacts for sharing.
+- Explore attacker data in Kibana and document findings.  
+- Add basic alerting for suspicious activity.  
+- Expand with more security tools (e.g., Suricata) in the future.  
+- Create simple reports to share attack trends.  
+- Automate parts of the deployment with Terraform or GitHub Actions. 
 
 
 ## Credits & Acknowledgements
