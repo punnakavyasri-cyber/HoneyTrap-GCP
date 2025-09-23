@@ -34,21 +34,20 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 - **Terraform CLI** installed on your machine  
 - **gcloud CLI** installed and configured with GCP account  
 
----
 
 ## 6. Project workflow
-**High level (start → dashboard):**
-1. Create a **Service Account** in GCP with required roles (Compute Admin, Storage Admin, etc.) and download the key JSON.  
-2. Place key JSON on your machine and reference it in `provider` credentials (or use `gcloud auth application-default login`).  
-3. Fill `terraform.tfvars` (use `terraform.tfvars.example` as template).  
-4. `terraform init` → `terraform plan` → `terraform apply` to create VPC, firewall, and VMs.  
-5. Provision Admin VM (SSH restricted) and Honeypot VM (public). Honeypot deploys T-Pot CE components.  
-6. Run Kibana in Docker on admin VM and connect it to collected telemetry (Elastic endpoints).  
-7. Open Kibana, validate dashboards, and begin Threat Analysis.
+1. Begin by creating a **Service Account** in GCP with the required IAM roles, and then download the key JSON file for authentication.  
+2. Save the downloaded key JSON file securely on your local machine and either reference it directly in the Terraform provider configuration or authenticate using `gcloud auth application-default login`.  
+3. Prepare the `terraform.tfvars` file by filling in the necessary variables, making use of the provided `terraform.tfvars.example` as a template to ensure consistency.  
+4. Initialize and execute Terraform by running `terraform init`, followed by `terraform plan` to review the changes, and finally `terraform apply` to provision the VPC, firewall rules, and virtual machines.  
+5. Once the infrastructure is deployed, provision both the Admin VM (with SSH restricted to your defined admin CIDR) and the Honeypot VM (public-facing) which automatically deploys the T-Pot CE honeypot components.  
+6. On the Admin VM, deploy Kibana by running it inside a Docker container and configure it to connect with the Elastic data sources that capture the honeypot telemetry.  
+7. Finally, open Kibana in your browser, validate that the dashboards are loading correctly, and begin the process of Threat Analysis by exploring attacker traffic, behaviors, and strategies.  
+
 
 **Detailed step-by-step workflow is in:** `WORKFLOW.md` — (detailed commands, IAM roles, provisioning notes, and troubleshooting).
 
-**Notes about your current status:**  
+**Notes about the current status of project:**  
 - Dashboards (Elastic/Kibana) are deployed — ✅  
 - Next: *explore the dashboard to identify who attacked the honeypot, what they attempted, and map their strategy (TTPs/IOC extraction)* — 🔎
 
@@ -60,7 +59,6 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 - Reconstruct attacker session timelines and pivot between logs (suricata, syslog, docker logs, connection records).  
 - Prepare a short report per attacker group: summary, IOCs, suggested detections, and containment steps.
 
----
 
 ## 7. Future Expansions
 - Integrate **Elasticsearch** as a persistent backend (if not already done) and optimize index lifecycle policies.  
@@ -71,19 +69,13 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 - Implement CI/CD: GitHub Actions for linting Terraform, and Terraform Cloud for remote runs and state.  
 - Develop a reporting notebook (Jupyter) to summarize attacker TTPs and produce artifacts for sharing.
 
----
 
 ## Credits & Acknowledgements
 This project uses and builds upon the open **T-Pot CE** honeypot framework by Telekom Security:  
 - T-Pot CE: https://github.com/telekom-security/tpotce — many honeypot components and deployment patterns are derived from this project. Please review their project and license for reuse details.
 
----
 
-## License
-This repository is licensed under the **MIT License** — see `LICENSE` for details.
-
----
 
 ## Quick security checklist (do this before committing)
 - Remove or replace any real values in `terraform.tfvars` with placeholders (commit `terraform.tfvars.example` instead).  
-- Add the following to `.gitignore`:
+- Add the following to `.gitignore`: `.terraform/`, `*.tfstate`, `*.tfstate.backup`, `terraform.tfvars`, `*.json`, `*.pem`
