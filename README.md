@@ -44,7 +44,7 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 7. Finally, open Kibana in your browser, validate that the dashboards are loading correctly, and begin the process of Threat Analysis by exploring attacker traffic, behaviors, and strategies.  
 
 
-**Detailed step-by-step workflow is in:** `WORKFLOW.md` — (detailed commands, IAM roles, provisioning notes, and troubleshooting).
+**Detailed step-by-step workflow is in:** <a href="https://github.com/punnakavyasri-cyber/HoneyTrap-GCP/blob/main/workflow.md"> WORKFLOW.md </a> — (detailed commands, IAM roles, provisioning notes, and troubleshooting).
 
 **Notes about the current status of project:**  
 - Dashboards (Elastic/Kibana) are deployed — ✅  
