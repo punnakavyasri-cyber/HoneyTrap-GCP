@@ -16,7 +16,7 @@ This repository bootstraps networking, compute, and firewall resources, deploys 
 
 ## 🏗️ Architecture Diagram
 
-
+<img width="375" height="453" alt="Architecture" src="https://github.com/user-attachments/assets/a10cd8f3-38e5-417b-b7dc-9a08944ae8be" />
 
 
 
