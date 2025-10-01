@@ -8,3 +8,4 @@
 *.log
 id_ed25519
 terraform.tfvars
+*.tfvars

@@ -9,4 +9,3 @@ ssh_username     = "ubuntu"
 subnet_cidr      = Subnet_CIDR
 admin_cidr       = Your_Public_IP/CIDR
 service_account_email = # Include your Service Account Email
-
